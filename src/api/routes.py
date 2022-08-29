@@ -51,7 +51,7 @@ def get_users():
 
 
 @api.route("/login", methods=["POST"])
-def create_token():
+def login():
     email = request.json.get("email", None)
     password = request.json.get("password", None)
 

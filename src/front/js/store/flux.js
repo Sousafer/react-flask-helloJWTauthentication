@@ -42,7 +42,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             alert("There has been some error");
             return false;
           }
-          console.log("here");
           const data = await resp.json();
           console.log("this came from the backend", data);
           sessionStorage.setItem("token", data.access_token);
@@ -73,6 +72,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         //reset the global store
         setStore({ demo: demo });
+      },
+      syncTokenFromSessionStore: async () => {
+        const token = sessionStorage.getItem("jwt-token");
       },
     },
   };
